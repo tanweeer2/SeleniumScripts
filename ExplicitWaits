@@ -1,0 +1,43 @@
+package SeleniumLesson.General;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+//public class ExplicitWaits {
+//
+//    public static void main(String[] args) throws InterruptedException {
+//
+//        System.setProperty("webdriver.chrome.driver", "D:\\All Learnings\\Selenium1\\chromedriver_win32 V.111\\chromedriver.exe");
+//        ChromeOptions option = new ChromeOptions();
+//        option.addArguments("--remote-allow-origins=*", "ignore-certificate-errors");
+//        WebDriver driver = new ChromeDriver(option);
+//        driver.manage().window().maximize();
+//        driver.manage().deleteAllCookies();
+//
+//        driver.get("https://www.facebook.com/");
+//        WebElement firstname = driver.findElement(By.name("firstname"));
+//        WebElement lastname = driver.findElement(By.name("lastname"));
+//
+//        sendKeys(driver,firstname, 10,"Tanweer");
+//        sendKeys(driver,lastname, 20,"Ahmad");
+//        WebElement forgotAccount = driver.findElement(By.linkText("Forgotten account?"));
+//        clickOn(driver, forgotAccount,10);
+//    }
+//    public static void sendKeys(WebDriver driver1, WebElement element, int timeout, String value)
+//    {
+//        new WebDriverWait(driver1,timeout).until(ExpectedConditions.visibilityOf(element));
+//        element.sendKeys(value);
+//    }
+//    private static void clickOn(WebDriver driver1, WebElement element, int timeout) {
+//
+//        new WebDriverWait(driver1,timeout).until(ExpectedConditions.elementToBeClickable(element));
+//        element.click();
+//    }
+//}
+////used when browser taking long to upload elements
+////works on those specific elements intended by own, not on all elements like implicitWaits
