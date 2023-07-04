@@ -1,0 +1,40 @@
+package SeleniumLesson.General;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+
+public class UploadFileUsingRobot {
+
+    public static void main(String[] args) throws InterruptedException, AWTException {
+        System.setProperty("webdriver.chrome.driver", "D:\\All Learnings\\Selenium1\\chromedriver_win32 V.111\\chromedriver.exe");
+        ChromeOptions option = new ChromeOptions();
+        option.addArguments("--remote-allow-origins=*","ignore-certificate-errors");
+        WebDriver driver = new ChromeDriver(option);
+        driver.get("https://www.remove.bg/");
+        driver.manage().window().maximize();
+        driver.findElement(By.xpath("//button[@class='btn btn-success']")).click();
+        driver.findElement(By.xpath("//div[@class='relative group flex flex-col gap-4 md:gap-8 max-w-md mt-8 md:mt-28']//button[@type='button'][normalize-space()='Upload Image']")).click();
+
+        Thread.sleep(3000);
+        Robot r = new Robot();
+        StringSelection ss = new StringSelection("Shakeel Ahmad.jpg");
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+
+        r.keyPress(KeyEvent.VK_CONTROL);
+        r.keyPress(KeyEvent.VK_V);
+
+        r.keyRelease(KeyEvent.VK_CONTROL);
+        r.keyRelease(KeyEvent.VK_V);
+
+        r.keyPress(KeyEvent.VK_ENTER);
+        r.keyRelease(KeyEvent.VK_ENTER);
+
+
+    }
+}
