@@ -1,0 +1,33 @@
+package SeleniumLesson.General;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import java.util.concurrent.TimeUnit;
+public class implicitWaits {
+
+    public static void main(String[] args) throws InterruptedException {
+
+        System.setProperty("webdriver.chrome.driver", "D:\\All Learnings\\Selenium1\\chromedriver_win32 V.111\\chromedriver.exe");
+        ChromeOptions option = new ChromeOptions();
+        option.addArguments("--remote-allow-origins=*","ignore-certificate-errors");
+        WebDriver driver = new ChromeDriver(option);
+        driver.manage().window().maximize();
+        driver.manage().deleteAllCookies();
+        //===========================================
+        //Maximum Time is 40 Seconds can use for pageLoadTimeout.
+        driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
+        //when Selenium not find provided elements (implicitlyWaits) waits for TimeUnit provided
+        // before throwing exception error for every element method in class.
+        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+        //===========================================
+        driver.get("https://www.ebay.co.uk/");
+        Thread.sleep(4000);
+        driver.findElement(By.xpath("//button[@id='gdpr-banner-accept']")).click();
+        driver.findElement(By.xpath("//input[@id='gh-ac']")).sendKeys("Pakistani Ladies Suits Size Medium");
+        Thread.sleep(4000);
+        driver.findElement(By.xpath("//input[@id='gh-btn']")).click();
+
+    }
+}
