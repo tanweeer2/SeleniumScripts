@@ -1,0 +1,23 @@
+package SeleniumLesson.General;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public class TestNg1 {
+    public String baseUrl = "https://www.edureka.co/";
+    String driverpath = "D:\\All Learnings\\Selenium1\\chromedriver_win32 V.111\\chromedriver.exe";
+    public WebDriver driver;
+    @Test
+    public void verifyHomepageTitle(){
+        System.out.println("Launching Chrome Browser");
+        System.setProperty("webdriver.chrome.driver", driverpath);
+        driver = new ChromeDriver();
+        driver.get(baseUrl);
+        String expectedTitle = "Instructor-Led online Training with 24X7 Lifetime Support | Edureka";
+        String actualTitle = driver.getTitle();
+        Assert.assertEquals(actualTitle, expectedTitle);
+        driver.close();
+    }
+}
