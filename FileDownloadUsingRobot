@@ -1,0 +1,37 @@
+package SeleniumLesson.General;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+import java.awt.*;
+import java.awt.event.KeyEvent;
+
+public class FileDownloadUsingRobot {
+    public static void main(String[] args) throws InterruptedException, AWTException {
+        System.setProperty("webdriver.chrome.driver", "D:\\All Learnings\\Selenium1\\chromedriver_win32 V.111\\chromedriver.exe");
+        ChromeOptions option = new ChromeOptions();
+        option.addArguments("--remote-allow-origins=*", "ignore-certificate-errors");
+        WebDriver driver = new ChromeDriver(option);
+        driver.get("https://www.google.com/");
+        driver.manage().window().maximize();
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("//*[@id=\"L2AGLb\"]/div")).click();
+        driver.findElement(By.name("q")).sendKeys("java download");
+        driver.findElement(By.name("q")).sendKeys(Keys.ENTER);
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//h3[normalize-space()='Download Java for Windows']")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//a[normalize-space()='Download Java']")).click();
+        Thread.sleep(2000);
+
+        //for firefox browser need robot, chrome start downloading automatically when click download.
+//        Robot r = new Robot();
+//        r.keyPress(KeyEvent.VK_TAB);
+//        r.keyPress(KeyEvent.VK_TAB);
+//        r.keyPress(KeyEvent.VK_ENTER;
+
+    }
+}
