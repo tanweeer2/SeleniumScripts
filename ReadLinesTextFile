@@ -1,0 +1,19 @@
+package SeleniumLesson.General;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class ReadLinesTextFile {
+
+    public static void main(String[] args) throws IOException {
+        String Fpath = "D:\\All Learnings\\ReadLines.txt";
+        BufferedReader bf = new BufferedReader(new FileReader(Fpath));
+        String startLine;
+        while ((startLine = bf.readLine()) !=null)
+        {
+            System.out.println(startLine);
+        }
+
+    }
+}
